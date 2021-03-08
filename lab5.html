@@ -1,0 +1,43 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>Eric Conklin - IT 2320 - Lab 5</h2>
+	<p><center>
+	   Timer (seconds): <input type="text" id="timerVal" value="5"><br/><br/>
+	   <img id="imageDisplay" src="images/adams.jpg"><br/><br/>
+	   <h2 id="timerCount">5</h2>
+	</center></p>
+
+	<script>
+		let start = 6;
+		let currentimage = 0;
+		var map = new Map();
+		map[0] = "images/adams.jpg";
+		map[1] = "images/jackson.jpg";
+		map[2] = "images/jefferson.jpg";
+		map[3] = "images/madison.jpg";
+		map[4] = "images/washington.jpg";
+
+
+		const interval = setInterval(function() {
+   			start--;
+			if (start == 0){
+				start = 5;
+				rotateImage();
+			}
+			$("#timerCount").html(start);
+ 		}, 1000);
+
+		function rotateImage(){
+			if (currentimage == 4){
+				currentimage = 0;
+			} else {
+				currentimage++;
+			}
+			$("#imageDisplay").prop("src", map[currentimage]);
+		}
+	</script>
+</body>
+</html>
