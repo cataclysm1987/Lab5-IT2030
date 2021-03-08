@@ -11,6 +11,7 @@
 	</center></p>
 
 	<script>
+		let restart = 5;
 		let start = 6;
 		let currentimage = 0;
 		var map = new Map();
@@ -20,11 +21,13 @@
 		map[3] = "images/madison.jpg";
 		map[4] = "images/washington.jpg";
 
-
+		$("#timerVal").change(function(){
+			restart = $("#timerVal").val();
+		});
 		const interval = setInterval(function() {
-   			start--;
+			start--;
 			if (start == 0){
-				start = 5;
+				start = restart;
 				rotateImage();
 			}
 			$("#timerCount").html(start);
